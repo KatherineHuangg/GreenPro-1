@@ -9,13 +9,14 @@
 /* Default StylingW3C-styles */
 html,
 body {
-    width: 1250px;
+    width: 100%;
 	margin: 0 auto;
     position: relative;
     text-align: center;
 }
 
 main {
+	height: 100%;
 	text-align: center;	
 }
 
@@ -41,7 +42,6 @@ h3{
 
 .bar,
 #focal-point,
-#store_grid,
 #grid_container,
 footer,
 main {
@@ -81,11 +81,10 @@ a {
 /* the header links end */
 
 
-#costco {
-    background-image: url(../img/costco_background.jpg);
+.main_background {
+    background-image: url(../img/main_background.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    overflow: visible;
 }
 
 /* search bar */
@@ -146,14 +145,16 @@ div #focal-point {
 
 
 #about_us {
-    margin: 60px 60px 100px 60px;
+    padding: 60px 60px 100px 60px;
+	background-color: #EBEFCC;
+	opacity: 75%;
 }
 
 #contact .row {
     margin: 50px;
 }
 
-#content {
+.content {
     background-color: white;
     text-align: left;
     margin: 8%;
@@ -165,34 +166,41 @@ div #focal-point {
     overflow: scroll;
 }
 
-#content .row {
+#costco_main .row {
     margin: 0;
     width: 800px;
     height: 50px;
 }
 
+#costco_product_main .row {
+    margin: 0;
+    width: 800px;
+    height: max-content;
+}
+
+.container  {
+	height: 40vh;
+}
+
+.link {
+	width: 10vh;
+}
+
+.link :hover {
+	opacity: 0.3;
+}
+
+#coop_store {
+	height: 45vh;
+}
+
+#coop_store h1 {
+	font-size: 2em;
+	margin: 10vh;
+}
+
 /* grids in my home page */
 /* ====================================================================== */
-#store_grid{
-	display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #8C9A57;
-    padding: 10px;
-}
-
-#store_grid .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-#store_grid a {
-    font-size: 25px;
-}
-
-
 .coop_img {
     width: 100px;
     max-width: 200px;
@@ -359,17 +367,17 @@ div #focal-point {
 	padding: 3px;
 }
 
-.col {
-    height: 220px;
-}
-
 .arrow_img:hover{
 	width: 84px;
 	padding: 1px;
 }
+
+.product_img {
+	width: 30vh;
+}
+
+
 /* img end */
-
-
 
 /* this is for about grids */
 /* ============================================================== */
