@@ -9,10 +9,10 @@ app.use('/', routes);
 // sendFile will go here
 app.use(express.static(__dirname + '/public'));
 app.get('/test', function (req, res) {
-  res.render('test');
+  res.render('Custom/ok');
 });
-app.get('/costco', function (req, res) {
-  res.render('costco');
+app.get('/product', function (req, res) {
+  res.render('Store/product');
 });
 // app.get("/", (req, res) => {
 //   // db.test();
@@ -25,23 +25,3 @@ app.set('view engine', 'html');
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
 
-
-
-
-
-
-
-
-
-
-// app.set('views', path.join(__dirname, 'views'));
-/**********************
-// ./EW/downloadBoard
-//  獲取啟動arduino board的exe file
-//  ***********************/
-//  router.get('/downloadBoard', function(req, res){
-// 	const filename="ButtonBoard.exe";
-// 	const filepath = `${__dirname}/${filename}`;
-// 	console.log(filepath)
-// 	//res.download(filepath);
-//   });
