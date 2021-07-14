@@ -2,7 +2,7 @@
   height: 120px;
   text-align: center;
   align-items: center;
-  border: 1px solid #bdbdbd; }
+  border: 1px solid #bdbdbd !important; }
   .productList img {
     height: 100px;
     width: auto;
@@ -11,7 +11,7 @@
     cursor: pointer; }
   .productList label {
     font-weight: bold;
-    font-size: 25px; }
+    font-size: 20px; }
 
 .listDiv {
   width: 100%;

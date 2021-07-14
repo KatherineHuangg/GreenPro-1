@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-md-2">
                 <a href="/">
-                    <img class="logo_img" alt="logo" src="image/logo.png" style="max-width: 100%;">
+                    <img class="logo_img" alt="logo" src="/image/logo.png" style="max-width: 100%;">
                 </a>
             </div>
             <div class="col-md-7">
@@ -55,37 +55,33 @@
     <div class=" centerDiv">
         <div class="container-fluid">
             <div class="row p-2">
-                <div class="row p-2 storeTitle">
-                    Costco/天母店
+                <div id="storeTitle" class="row p-2 storeTitle">
+                    <%=storeTitle%>/ <%=nameTitle%>
                 </div>
                 <form class="mb-3 needs-validation" novalidate>
                     <div class="row p-2">
                         <div class="col-md-4">
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control mb-2 bold" placeholder="name" required>
+                            <input type="text" name="Mname" class="form-control mb-2 bold" placeholder="name" required>
                         </div>
                         <div class="col-md-4">
                             <label>Date</label>
-                            <input type="date" name="date" class="form-control mb-2 bold" placeholder="xxxx/xx/xx"
+                            <input type="date" name="Mdate" class="form-control mb-2 bold" placeholder="xxxx/xx/xx"
                                 required>
                         </div>
                         <div class="col-md-4">
                             <label>Price</label>
-                            <input type="number" name="price" class="form-control mb-2 bold" placeholder="price"
+                            <input type="number" name="Mprice" class="form-control mb-2 bold" placeholder="price"
                                 required>
                         </div>
                         <div class="col-md-4">
                             <label>Numbers</label>
-                            <input type="number" name="numbers" class="form-control mb-2 bold" placeholder="number"
+                            <input type="number" name="Mnumber" class="form-control mb-2 bold" placeholder="number"
                                 required>
                         </div>
                         <div class="col-md-4">
-                            <label>Name</label>
-                            <input type="text" name="name" class="form-control mb-2 bold" placeholder="name" required>
-                        </div>
-                        <div class="col-md-4">
                             <label>Picture</label>
-                            <input type="text" name="name" class="form-control mb-2 bold" placeholder="picture">
+                            <input type="text" name="Mpic" class="form-control mb-2 bold" placeholder="picture">
                         </div>
                     </div>
 
@@ -100,40 +96,11 @@
                 <div class="row p-2 ">
                     <div class="col">
                         <div class="list-group">
-                            <% for(var i=0; i<8; i++) {%>
-                            <a href="#"
-                                class="d-flex bd-highlight productList list-group-item list-group-item-action list-group-item-light">
-                                <div class="me-auto  bd-highlight">
-                                    <img class="product_img" alt="product"
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIYvhCMzUITMCQCQS3Z3A13ZX2GG5LFQyKAQ&usqp=CAU">
-                                </div>
-                                <label class="me-auto p-1 bd-highlight ">炸醬麵</label>
-                                <label class="me-auto p-1 bd-highlight">2021/07/15</label>
-                                <label class="me-auto p-1 bd-highlight">89元</label>
-                                <label class="me-auto p-1 bd-highlight">45個</label>
-                                <button class="btn btn-primary m-2" type="button">Modify</button>
-                                <button class="btn btn-danger m-2" type="button">Delete</button>
-                            </a>
-                            <% }%>
                         </div>
                     </div>
                     <div class="col">
                         <div class="list-group">
-                            <% for(var i=0; i<8; i++) {%>
-                            <a href="#"
-                                class="d-flex bd-highlight productList list-group-item list-group-item-action list-group-item-light">
-                                <div class="me-auto  bd-highlight">
-                                    <img class="product_img" alt="product"
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIYvhCMzUITMCQCQS3Z3A13ZX2GG5LFQyKAQ&usqp=CAU">
-                                </div>
-                                <label class="me-auto p-1 bd-highlight ">炸醬麵</label>
-                                <label class="me-auto p-1 bd-highlight">2021/07/15</label>
-                                <label class="me-auto p-1 bd-highlight">89元</label>
-                                <label class="me-auto p-1 bd-highlight">45個</label>
-                                <button class="btn btn-primary m-2" type="button">Modify</button>
-                                <button class="btn btn-danger m-2" type="button">Delete</button>
-                            </a>
-                            <% }%>
+
                         </div>
                     </div>
 
@@ -147,33 +114,6 @@
     <div class="main_background">
 
     </div>
-    <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">炸醬麵</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="mb-3 needs-validation" novalidate>
-                        <label>Name</label>
-                        <input type="text" name="name" class="form-control mb-2 bold" placeholder="email" required>
-                        <label>Date</label>
-                        <input type="date" name="date" class="form-control mb-2 bold" placeholder="xxxx/xx/xx" required>
-                        <label>Price</label>
-                        <input type="number" name="price" class="form-control mb-2 bold" placeholder="price" required>
-                        <label>Numbers</label>
-                        <input type="number" name="numbers" class="form-control mb-2 bold" placeholder="number"
-                            required>
-                        <div class="btn-group w-100" role="group">
-                            <button type="button" class="btn btn-primary w-50">recover</button>
-                            <button type="submit" class="btn btn-success w-50">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <footer>
         <div>
             <p>
@@ -183,10 +123,69 @@
     </footer>
 </body>
 <script>
-    $(document).ready(function () {
+    var listID=null
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+    });
+ 
+    $( window ).on( "load", function() {
+        console.log( "window loaded" );
         ///$('#modifyModal').modal('show');
+        $.ajax({
+            url: '/store/manageProduct',
+            data: JSON.stringify({
+                address: "台南市永康區中山南路282之5號"
+            }),
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (returnData) {
+                const listgroup = document.getElementsByClassName('list-group');
+                const space = Math.ceil(returnData.length / listgroup.length)
+                // console.log(document.getElementsByClassName('list-group'))
+                for (let y = 0, i = 0; y * space + i < returnData.length; ++i) {
+                    if (i > space) {
+                        y++;
+                        i = 0;
+                    }
+                    newinput = `<a href="#" id=a_${returnData[y * space + i].id} 
+                    class=" mb-2 d-flex bd-highlight productList list-group-item list-group-item-action list-group-item-light">
+                    <!-- <div class="me-auto  bd-highlight"> -->
+                        <img class=" me-auto bd-highlight product_img" alt="product"
+                            src="${returnData[y * space + i].pic}">
+                    <!-- </div> -->
+                    <label name='name' class="me-auto p-1 bd-highlight ">${returnData[y * space + i].name}</label>
+                    <label name='date' class="me-auto p-1 bd-highlight">${returnData[y * space + i].date}</label>
+                    <label name='price' class="me-auto p-1 bd-highlight">${returnData[y * space + i].price}元</label>
+                    <label name='number' class="me-auto p-1 bd-highlight">${returnData[y * space + i].number}個</label>
+                    <button  class="btn btn-primary m-2" type="button" id=mbtn${returnData[y * space + i].id}>Modify</button>
+                    <button  class="btn btn-danger m-2" type="button" id=dbtn_${returnData[y * space + i].id}>Delete</button>
+                </a>`
+                      listgroup[y].innerHTML += newinput;
+                      $("storeTitle").text("<b>Some</b> new text.");
+                }
+                $(".btn").on('click', (event) => {
+                    listID=event.target.id.toString().match(/(\d+)/)[0]
+                    console.log(listID)
+                    $('input[name="Mname"]').val($(event.target).siblings("label[name='name']").text())
+                   // $('input[name="Mdate"]').val(new Date($(event.target).siblings("label[name='date']").text()))
+                    $('input[name="Mdate"]').val($(event.target).siblings("label[name='date']").text())
+                    $('input[name="Mprice"]').val($(event.target).siblings("label[name='price']").text().match(/(\d+)/)[0])
+                    $('input[name="Mnumber"]').val($(event.target).siblings("label[name='number']").text().match(/(\d+)/)[0])
+                    $('input[name="Mpic"]').val($(event.target).siblings("label[name='name']").text())
+                })
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+    });
+    $(document).ready(function () {
+        
 
     });
+
     (function () {
         'use strict'
 

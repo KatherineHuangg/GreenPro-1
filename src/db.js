@@ -157,12 +157,40 @@ const checkUserExist = function (email, kind, password) {
 }
 const getProduct = (address)=>{
     return new Promise((resolve, reject) => {
+        var data=null
         dbpool.getConnection(function (err, connection) {
             if (err) {
                 reject(err)
             } else {
-                let sql = `SELECT * FROM product WHERE address='${address}' `
+                let sql = `SELECT * FROM product WHERE address='${address.trim()}' `
                 // 執行 sql 腳本對資料庫進行讀寫
+                console.log(sql)
+                connection.query(sql, (err2, rows) => {
+                    if (err2) {
+                        reject(err)
+                    } else {
+                        if(rows.length>0){
+                            data=rows
+                            resolve(data)
+                        }else{
+                            resolve({"error":"not exist"})
+                        }            
+                    }
+                    connection.release() // 結束會話
+                })
+            }
+        })
+    })
+}
+const getStore = (kind)=>{
+    return new Promise((resolve, reject) => {
+        dbpool.getConnection(function (err, connection) {
+            if (err) {
+                reject(err)
+            } else {
+                let sql = `SELECT * FROM store WHERE kind='${kind.trim()}' `
+                // 執行 sql 腳本對資料庫進行讀寫
+                console.log(sql)
                 connection.query(sql, (err2, rows) => {
                     if (err2) {
                         reject(err)
@@ -189,5 +217,6 @@ module.exports = {
     addUser,
     checkUserExist,
     getProduct,
+    getStore,
     test
 };
