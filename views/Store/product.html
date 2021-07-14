@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>綠Pro/Costco</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link href="//db.onlinewebfonts.com/c/0801c08e5412f54e4b4e9ad146d83a12?family=Ink+Free" rel="stylesheet"
-        type="text/css" />
-
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/css/product.css" />
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -26,6 +25,7 @@
 </head>
 
 <body class="costco_body container-fluid ">
+
     <header class="row">
         <div class="row">
             <div class="col-md-2">
@@ -41,76 +41,138 @@
                 </div>
             </div>
             <div class="col-md-1">
-                <label id="account_name">Account</label>
+                <a class="bar-link" href="/">Home</a>
             </div>
+
             <div class="col-md-1">
                 <label id="identity">Identity</label> <!-- customer or merchants -->
             </div>
             <div class="col-md-1">
-                <a class="bar-link" href="/">Home</a>
+                <label id="account_name">Account</label>
             </div>
         </div>
     </header>
     <div class=" centerDiv">
-        <div class="container">
-            <div class="row" style="height: max-content;">
-                <div class="col-md-3">
-                    Product 1
-                    <div>
-                        <img class="product_img" alt="product"
-                            src="https://images-tw.girlstyle.com/wp-content/uploads/2020/11/e4d3de90.jpg">
-                    </div>
+        <div class="container-fluid">
+            <div class="row p-2">
+                <div class="row p-2 storeTitle">
+                    Costco/天母店
                 </div>
-                <div class="col-md-3">
-                    Product 2
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/eyXceyG.png">
+                <form class="mb-3 needs-validation" novalidate>
+                    <div class="row p-2">
+                        <div class="col-md-4">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control mb-2 bold" placeholder="name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Date</label>
+                            <input type="date" name="date" class="form-control mb-2 bold" placeholder="xxxx/xx/xx"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Price</label>
+                            <input type="number" name="price" class="form-control mb-2 bold" placeholder="price"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Numbers</label>
+                            <input type="number" name="numbers" class="form-control mb-2 bold" placeholder="number"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control mb-2 bold" placeholder="name" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Picture</label>
+                            <input type="text" name="name" class="form-control mb-2 bold" placeholder="picture">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    Product 3
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/xV0rZyV.png">
+
+                    <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn btn-outline-primary ">add</button>
+                        <button type="button" class="btn btn-outline-primary  ">recover</button>
+                        <button type="submit" class="btn btn-outline-primary ">Save</button>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    product 4
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/dR0BuUi.png">
+                </form>
+            </div>
+            <div class="listDiv">
+                <div class="row p-2 ">
+                    <div class="col">
+                        <div class="list-group">
+                            <% for(var i=0; i<8; i++) {%>
+                            <a href="#"
+                                class="d-flex bd-highlight productList list-group-item list-group-item-action list-group-item-light">
+                                <div class="me-auto  bd-highlight">
+                                    <img class="product_img" alt="product"
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIYvhCMzUITMCQCQS3Z3A13ZX2GG5LFQyKAQ&usqp=CAU">
+                                </div>
+                                <label class="me-auto p-1 bd-highlight ">炸醬麵</label>
+                                <label class="me-auto p-1 bd-highlight">2021/07/15</label>
+                                <label class="me-auto p-1 bd-highlight">89元</label>
+                                <label class="me-auto p-1 bd-highlight">45個</label>
+                                <button class="btn btn-primary m-2" type="button">Modify</button>
+                                <button class="btn btn-danger m-2" type="button">Delete</button>
+                            </a>
+                            <% }%>
+                        </div>
                     </div>
+                    <div class="col">
+                        <div class="list-group">
+                            <% for(var i=0; i<8; i++) {%>
+                            <a href="#"
+                                class="d-flex bd-highlight productList list-group-item list-group-item-action list-group-item-light">
+                                <div class="me-auto  bd-highlight">
+                                    <img class="product_img" alt="product"
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIYvhCMzUITMCQCQS3Z3A13ZX2GG5LFQyKAQ&usqp=CAU">
+                                </div>
+                                <label class="me-auto p-1 bd-highlight ">炸醬麵</label>
+                                <label class="me-auto p-1 bd-highlight">2021/07/15</label>
+                                <label class="me-auto p-1 bd-highlight">89元</label>
+                                <label class="me-auto p-1 bd-highlight">45個</label>
+                                <button class="btn btn-primary m-2" type="button">Modify</button>
+                                <button class="btn btn-danger m-2" type="button">Delete</button>
+                            </a>
+                            <% }%>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    product 5
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/ClLR9nH.png">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    Product 6
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/mvzxvdA.png">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    Product 7
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/tS2iWR2.png">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    product 8
-                    <div>
-                        <img class="product_img" alt="product" src="https://i.imgur.com/MftIJbl.png">
-                    </div>
-                </div>
-            </div>
+
+
         </div>
 
     </div>
     <div class="main_background">
 
+    </div>
+    <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">炸醬麵</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="mb-3 needs-validation" novalidate>
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control mb-2 bold" placeholder="email" required>
+                        <label>Date</label>
+                        <input type="date" name="date" class="form-control mb-2 bold" placeholder="xxxx/xx/xx" required>
+                        <label>Price</label>
+                        <input type="number" name="price" class="form-control mb-2 bold" placeholder="price" required>
+                        <label>Numbers</label>
+                        <input type="number" name="numbers" class="form-control mb-2 bold" placeholder="number"
+                            required>
+                        <div class="btn-group w-100" role="group">
+                            <button type="button" class="btn btn-primary w-50">recover</button>
+                            <button type="submit" class="btn btn-success w-50">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div>
@@ -120,5 +182,32 @@
         </div>
     </footer>
 </body>
+<script>
+    $(document).ready(function () {
+        ///$('#modifyModal').modal('show');
+
+    });
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+        console.log(forms)
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    } else {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 
 </html>

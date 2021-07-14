@@ -130,6 +130,7 @@ const addUser = (name, email, password, kind, pic = 'none') => {
         })
     })
 }
+
 const checkUserExist = function (email, kind, password) {
     return new Promise((resolve, reject) => {
         dbpool.getConnection(function (err, connection) {
@@ -154,6 +155,30 @@ const checkUserExist = function (email, kind, password) {
         })
     })
 }
+const getProduct = (address)=>{
+    return new Promise((resolve, reject) => {
+        dbpool.getConnection(function (err, connection) {
+            if (err) {
+                reject(err)
+            } else {
+                let sql = `SELECT * FROM product WHERE address='${address}' `
+                // 執行 sql 腳本對資料庫進行讀寫
+                connection.query(sql, (err2, rows) => {
+                    if (err2) {
+                        reject(err)
+                    } else {
+                        if(rows.length>0){
+                            resolve(rows)
+                        }else{
+                            resolve({"error":"not exist"})
+                        }            
+                    }
+                    connection.release() // 結束會話
+                })
+            }
+        })
+    })
+}
 module.exports = {
     udpateProduct,
     deleteProduct,
@@ -163,5 +188,6 @@ module.exports = {
     updateStore,
     addUser,
     checkUserExist,
+    getProduct,
     test
 };

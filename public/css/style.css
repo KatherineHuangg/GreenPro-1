@@ -13,7 +13,7 @@
 	 height: 95vh;
 	 margin: 0 auto;
 	 position: relative;
-	 text-align: center;
+	 /* text-align: center; */
 	
  }
  
@@ -28,7 +28,7 @@
 	 background-color: white;
  }
  
- footer {
+ /* footer {
 	 margin-bottom: 0;
 	 background-color: #8C9A57;
 	 color: white;
@@ -38,8 +38,17 @@
 	 text-transform: uppercase;
 	 vertical-align: middle;
 	 text-align: center;
- }
- 
+ } */
+ footer {
+	background-color: #8C9A57;
+	color: white;
+	height: 30px;
+	padding: 5px;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	vertical-align: middle;
+	text-align: center;
+}
  h3{
 	 font-size: 24px;
 	 font-family: 'Ink free', 'Segoe Script', 'MV Boli', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -166,23 +175,12 @@
 	left: 50%;
 	/* -ms-transform: translate(-50%,-50%);  */
 	transform: translate(-50%,-50%); 
-	width: 80rem;
+	width: 98rem;
+	height: 40rem;
 	background-color: white;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
 }
- .content {
-	 background-color: white;
-	 text-align: left;
-	 width: 80vw;
-	 height: 60vh;
-	 /* margin: 8%;
-	 padding: 2%;
-	 padding-top: 4%; */
-	 font-family: Arial, Helvetica, sans-serif;
-	 font-size: 16px;
-	 display: inline-block;
-	 overflow: scroll;
- }
- 
  #costco_main .row {
 	 margin: 0;
 	 width: 800px;
@@ -219,7 +217,7 @@
  /* grids in my home page */
  /* ====================================================================== */
  .coop_img {
-	 width: 100px;
+	 width: 80%;
 	 max-width: 200px;
  }
  
@@ -296,7 +294,18 @@
  /* experts end */
  
  
- 
+ .content {
+    background-color: white;
+    text-align: left;
+    margin: 8%;
+    padding: 2%;
+    padding-top: 4%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
  
  /* introduction of our institution */
  /* ========================================================================== */
@@ -365,11 +374,10 @@
  }
  
  .animal_img {
-	 position: absolute;
-	 top: 1150px;
-	 left: 0;
-	 width: 180px;
-	 z-index: -1;
+	float: left;
+	height: 300px;
+	 /* left: 0;
+	 width: 15px; */
  }
  
  #study_img {
