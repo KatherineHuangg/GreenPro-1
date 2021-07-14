@@ -1,3 +1,6 @@
+span, label, input::placeholder {
+  font-family: 'Garamond', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+
 .clr {
   color: red;
   background-color: rebeccapurple; }
@@ -53,5 +56,4 @@ span.buttonText {
   vertical-align: middle;
   font-size: 18px;
   font-weight: bold;
-  /* Use the Roboto font that is loaded in the <head> */
-  font-family: 'Roboto', sans-serif; }
+  /* Use the Roboto font that is loaded in the <head> */ }

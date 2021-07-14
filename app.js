@@ -11,6 +11,9 @@ app.use(express.static(__dirname + '/public'));
 app.get('/test', function (req, res) {
   res.render('test');
 });
+app.get('/costco', function (req, res) {
+  res.render('costco');
+});
 // app.get("/", (req, res) => {
 //   // db.test();
 // });
