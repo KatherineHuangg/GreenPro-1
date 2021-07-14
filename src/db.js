@@ -155,14 +155,14 @@ const checkUserExist = function (email, kind, password) {
         })
     })
 }
-const getProduct = (address)=>{
+const getProduct = (type,name)=>{
     return new Promise((resolve, reject) => {
         var data=null
         dbpool.getConnection(function (err, connection) {
             if (err) {
                 reject(err)
             } else {
-                let sql = `SELECT * FROM product WHERE address='${address.trim()}' `
+                let sql = `SELECT * FROM product WHERE ${type}='${name.trim()}' `
                 // 執行 sql 腳本對資料庫進行讀寫
                 console.log(sql)
                 connection.query(sql, (err2, rows) => {
@@ -207,6 +207,26 @@ const getStore = (kind)=>{
         })
     })
 }
+
+const getSearch = (name)=>{
+    return new Promise((resolve, reject) => {
+        dbpool.getConnection(function (err, connection) {
+            if (err) {
+                reject(err)
+            } else {
+                const sql =name=="kind"?`SELECT DISTINCT kind FROM store`:`SELECT DISTINCT address,name,kind FROM store`
+                connection.query(sql, (err2, rows) => {
+                    if (err2) {
+                        reject(err)
+                    } else {
+                        resolve(rows)
+                    }
+                    connection.release() // 結束會話
+                })
+            }
+        })
+    })
+}
 module.exports = {
     udpateProduct,
     deleteProduct,
@@ -218,5 +238,6 @@ module.exports = {
     checkUserExist,
     getProduct,
     getStore,
+    getSearch,
     test
 };

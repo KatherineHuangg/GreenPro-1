@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>綠Pro/Costco</title>
+    <title>綠Pro</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
@@ -35,12 +35,29 @@
             <p id="identity">Identity</p> <!-- customer or merchants -->
             <a class="bar-link" href="/">Home</a>
         </div>
-        <div class="input-group rounded">
-            <input type="search" class="form-control rounded" placeholder="Search.." aria-label="Search"
-                aria-describedby="search-addon" />
-            <span class="input-group-text border-0" id="search-addon">
+        <div class="input-group mb-3">
+            <button id="typeMenu" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" tag="name" >商家名稱</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" tag="name">商家名稱</a></li>
+                <li><a class="dropdown-item" href="#" tag="address">地址</a></li>
+                <li><a class="dropdown-item" href="#" tag="kind">類別</a></li>
+            </ul>
+            <input class="form-control rounded" list="datalistOptions" id="searchInput"
+                placeholder="Type to search...">
+            <datalist id="datalistOptions">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+            </datalist>
+            <button class="input-group-text border-0" id="searchBtn">
                 <i class="fa fa-search"></i>
-            </span>
+            </button>
+            <form id="searchForm" action="/productPage" method="POST" style="display: none;">
+                <input type="text" >
+            </form>
         </div>
     </header>
     <main class="main_background" id=costco_main>
@@ -67,69 +84,11 @@
                             <input type="text" name="kind" value="<%=item.kind%>">
                             <input type="text" name="address" value="<%=item.address%>">
                         </form>
-                        <div class="col">
+                        <div class="col-1">
                             <button id="" onclick='$("#productForm<%=item.tel%>").submit()'>Click</button>
                         </div>
                     </div>
                     <% } %>
-
-                    <!-- <div class="row">
-                        <div class="col">
-                            北投店
-                        </div>
-                        <div class="col">
-                            02-28986150
-                        </div>
-                        <div class="col">
-                            台北市北投區立德路117號
-                        </div>
-                        <div class="col">
-                            <a href="costco_product.html">Home</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            北投店
-                        </div>
-                        <div class="col">
-                            02-28986150
-                        </div>
-                        <div class="col">
-                            台北市北投區立德路117號
-                        </div>
-                        <div class="col">
-                            <a href="costco_product.html">Home</a>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            內湖店
-                        </div>
-                        <div class="col">
-                            02-8791-0110
-                        </div>
-                        <div class="col">
-                            台北市內湖區舊宗路一段268號
-                        </div>
-                        <div class="col">
-                            <a href="costco_product.html">Home</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            內湖店
-                        </div>
-                        <div class="col">
-                            02-8791-0110
-                        </div>
-                        <div class="col">
-                            台北市內湖區舊宗路一段268號
-                        </div>
-                        <div class="col">
-                            <a href="costco_product.html">Home</a>
-                        </div>
-                    </div> -->
                 </div>
 
             </div>
@@ -137,7 +96,7 @@
         </div>
     </main>
     <footer>
-        
+
         <div>
             <p>
                 &copy; 2021. By Green Pro Inc.
@@ -146,15 +105,15 @@
     </footer>
 </body>
 <script>
-
-    const submitForm=(kind,name,address)=>{
-        const data={
-          name:name,
-          kind:kind,
-          address:address
+    const submitForm = (kind, name, address) => {
+        const data = {
+            name: name,
+            kind: kind,
+            address: address
         }
-        $.post( "/productPage", data );
-        
+        $.post("/productPage", data);
+
     }
 </script>
+<script src="/js/bar.js"></script>
 </html>

@@ -9,24 +9,40 @@ const db = require('./src/db');
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
-app.get('/storePage/:kind',async function (req, res) {
-  console.log(req.params.kind)
+app.get('/storePage/:kind', async function (req, res) {
+  console.log(req.params.kind, "----")
   const data = await db.getStore(req.params.kind)
-  
-  res.render('Custom/store',{kind:req.params.kind,data:data});
-});
-app.post('/productPage',async function (req, res) {
-  console.log(req.body)
-  const data = await db.getProduct(req.body.address)
   console.log(data)
-  res.render('Custom/product',{data:data});
+  res.render('Custom/store', {
+    kind: req.params.kind,
+    data: data
+  });
+});
+app.post('/productPage', async function (req, res) {
+  console.log(req.body)
+  var data=null
+  if ('address' in req.body) {
+    data = await db.getProduct('address',req.body.address)
+  } else {
+    data = await db.getProduct('name',req.body.name)
+  }
+
+  console.log(data)
+  res.render('Custom/product', {
+    data: data
+  });
 });
 app.get('/managePage', function (req, res) {
   res.render('Store/product');
 });
-// app.get("/", (req, res) => {
-//   // db.test();
-// });
+app.post('/getSearch', async function (req, res) {
+  const data = await db.getSearch(req.body.name)
+  console.log(data)
+  res.send(data)
+});
+app.get("/testet", (req, res) => {
+  res.render('testet');
+});
 // view engine setup
 app.engine('.html', require('ejs').__express);
 app.set('views', path.join(__dirname, 'views')); //注意path要require一下
@@ -35,4 +51,3 @@ app.use('/', routes);
 app.use('/store', storeRouter);
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
-
