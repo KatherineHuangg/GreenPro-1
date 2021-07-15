@@ -25,10 +25,10 @@
         content="704955964578-h12ktncaj45noqmmb3q3hu9vrtkhh5ol.apps.googleusercontent.com">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <script src="https://apis.google.com/js/api:client.js"></script>
-
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="js/google.js"></script>
     <script src="js/normal.js"></script>
+
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v11.0"
         nonce="BJxM7W7J"></script>
     <title>綠Pro</title>
@@ -46,7 +46,7 @@
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" name="btnradio" id="loginCustomerBtn" autocomplete="off"
                         checked>
-                    <label class="btn btn-outline-secondary toggle-btn" for="loginCustomerBtn">顧客</label>
+                    <label class="btn btn-outline-secondary toggle-btn toggle" for="loginCustomerBtn">顧客</label>
                     <input type="radio" class="btn-check" name="btnradio" id="loginStoreBtn" autocomplete="off">
                     <label class="btn btn-outline-secondary toggle-btn" for="loginStoreBtn">合作店家</label>
                 </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" name="btnradio" id="customerBtn" autocomplete="off" checked>
-                    <label class="btn btn-outline-secondary toggle-btn" for="customerBtn">顧客</label>
+                    <label class="btn btn-outline-secondary toggle-btn toggle" for="customerBtn">顧客</label>
                     <input type="radio" class="btn-check" name="btnradio" id="storeBtn" autocomplete="off">
                     <label class="btn btn-outline-secondary toggle-btn" for="storeBtn">合作店家</label>
                 </div>
@@ -180,79 +180,108 @@
     <header>
         <div>
             <a href="#">
-                <img class="logo_img" alt="logo" src="image/logo.png">
+                <img class="logo_img" alt="logo" src="/image/logo.png">
             </a>
             <!--
                     Available online:
                     https://www.pinterest.com/pin/ATnC6Tu_-wqojHlwLGb10OH3ri6EJyypKDBFSyw5P8Y1DGfjSIMghzk/
                     Accessed: 18 Apr 2020
                 -->
-            <a class="bar-link" href="register.html" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#loginModal">Log In/Sign Up</a>
+            <a class="bar-link" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Log In/Sign
+                Up</a>
             <a class="bar-link" href="#about_us">About Us</a> <!-- Add a link to a new page -->
             <a class="bar-link" href="#store_part">Store</a>
             <a class="bar-link" href="#">Home</a>
-
+            <img id="paper_plane_img" class="p-0" alt="paper_plane_img" src="/image/paper_plane.png">
+        </div>
+        <div class="input-group mb-3">
+            <button id="typeMenu" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" tag="name" >商家名稱</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" tag="name">商家名稱</a></li>
+                <li><a class="dropdown-item" href="#" tag="address">地址</a></li>
+                <li><a class="dropdown-item" href="#" tag="kind">類別</a></li>
+            </ul>
+            <input class="form-control rounded" list="datalistOptions" id="searchInput"
+                placeholder="Type to search...">
+            <datalist id="datalistOptions">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+            </datalist>
+            <button class="input-group-text border-0" id="searchBtn">
+                <i class="fa fa-search"></i>
+            </button>
+            <form id="searchForm" action="/productPage" method="POST" style="display: none;">
+                <input type="text" >
+            </form>
         </div>
     </header>
     <main>
         <div>
             <img id="focal-point" alt="home_page_background" src="image/home_page_background.png">
         </div>
-        <div id="store_part">
-            <h1>
-                合作店家
-            </h1>
-        </div>
-        <!-- Contains three parts to briefly explain the sources we have (Learning Center, Experts, Tutors) -->
-        <div id="store_grid">
-            <div class="grid-item">
-                <img class="coop_img" alt="costco"
-                    src="https://upload.wikimedia.org/wikipedia/commons/5/59/Costco_Wholesale_logo_2010-10-26.svg">
-            </div>
-            <div class="grid-item">
-                <img class="coop_img" alt="全聯"
-                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.18172-8/29744888_1971961839541119_2572139267371021556_o.png?_nc_cat=1&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=slK0l8lVyzwAX_NOWkj&_nc_ht=scontent-tpe1-1.xx&oh=5cdd1347635fea33e0bce8e5a6c2f3b5&oe=60F24D8B">
+        <div id="coop_store" style="font-family: ‘Noto Sans TC’, sans-serif;">
+            <h1>合作店家</h1>
+            <!-- Contains three parts to briefly explain the sources we have (Learning Center, Experts, Tutors) -->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <a class="link" href="/storePage/costco">
+                            <img class="coop_img" alt="costco" src="/image/coscto_logo.PNG">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="link" href="/storePage/alllink">
+                            <img class="coop_img" alt="全聯"
+                                src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.18172-8/29744888_1971961839541119_2572139267371021556_o.png?_nc_cat=1&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=slK0l8lVyzwAX_NOWkj&_nc_ht=scontent-tpe1-1.xx&oh=5cdd1347635fea33e0bce8e5a6c2f3b5&oe=60F24D8B">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="link" href="/storePage/711">
+                            <img class="coop_img" alt="711" src="/image/711_logo.png">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="link" href="/storePage/family">
+                            <img class="coop_img" alt="family" src="/image/family_logo.jpg">
+                        </a>
+                    </div>
 
+                    <div class="col">
+                        <a class="link" href="/storePage/ok">
+                            <img class="coop_img" alt="ok"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/OK_Taiwan.svg/225px-OK_Taiwan.svg.png">
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div class="grid-item">
-                <img class="coop_img" alt="ok"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/OK_Taiwan.svg/225px-OK_Taiwan.svg.png">
-
-            </div>
-            <div class="grid-item">
-                <a class="costco-link" href="costco">Costco</a>
-            </div>
-            <div class="grid-item">
-                <a class="全家-link" href="store.html">全家</a>
-            </div>
-            <div class="grid-item">
-                <a class="ok-link" href="store.html">OK</a>
-            </div>
-
         </div>
 
         <div id="about_us">
             <section>
                 <h3>About Us</h3>
                 <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nulla
-                    cursus commodo massa eget pharetra. Nullam scelerisque lectus eget scelerisque facilisis. Vivamus
-                    interdum
-                    turpis nec gravida mattis. Nulla pulvinar diam sit amet arcu vestibulum facilisis. Proin pretium
-                    urna et enim
-                    suscipit pretium. Nam imperdiet gravida est, ac blandit nibh fringilla nec.
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根據聯合國SDGs目標12:
+                    Responsible Consumption And Production，為了減少生產與供應鏈
+                    上的糧食損失，綠Pro致力於將大賣場或超商的即期食品透明化。藉由顯示各店家即期食品的資訊，
+                    讓有興趣的民眾能夠透過綠Pro知道哪裡有便宜的折價販售即期食品並前去購買，不僅減少食
+                    物浪費，也減少商家損失。
                 </p>
             </section>
         </div>
-        <div class="container" id="contact">
+        <div class="container-fluid" id="contact">
             <div class="row">
+                <div class="col">
+                    <img class="animal_img" alt="animals" src="image/animals.png">
+                </div>
                 <div class="col">
                     <h3>Address</h3>
                     <p>
-                        Phone: (902)7043539<br>Instagram: E-LearningABC<br>Facebook: E-Learning @Canada<br>Email:
-                        E-LearningABC@dal.ca
+                        Phone: (06)2827889<br>Instagram: Green_Pro<br>Facebook: GreenPro@Taiwan<br>Email:
+                        GreenPro@gmail.com
                     </p>
                 </div>
                 <div class="col">
@@ -270,20 +299,23 @@
                         <p><img class="arrow_img" src="image/arrow.png" alt="arrow"></p>
                     </a>
                 </div>
+                <div class="col">
+                </div>
             </div>
-            <img class="animal_img" alt="animals" src="image/animals.png">
-        </div>
 
-    </main>
-    <footer>
-        <div>
-            <p>
-                &copy; 2021. By Green Pro Inc.
-            </p>
         </div>
-    </footer>
+        <footer>
+            <div>
+                <p>
+                    &copy; 2021. By Green Pro Inc.
+                </p>
+            </div>
+        </footer>
+    </main>
+
 </body>
 <script>
+    
     var isLogin = true;
     changeType = () => {
         isLogin = !isLogin;
@@ -296,7 +328,7 @@
         }
     }
     $(document).ready(function () {
-        $('#loginModal').modal('show');
+        //    $('#loginModal').modal('show');
         $(".toggle-btn").on('click', (event) => {
             const forText = event.target.getAttribute('for').toString();
             console.log(event.target.getAttribute('for'), $('div[name="storeDiv"]').css("display"))
@@ -377,5 +409,5 @@
             })
     })()
 </script>
-
+<script src="/js/bar.js"></script>
 </html>
