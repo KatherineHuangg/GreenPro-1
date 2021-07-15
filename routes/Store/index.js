@@ -9,7 +9,7 @@ storeRouter.get('/:store/:name/', function (req, res) {
     res.render('Store/product',{storeTitle:req.params.store,nameTitle:req.params.name});
 });
 storeRouter.post('/manageProduct',async function (req, res) {
-    const data=await db.getProduct(req.body['address'])
+    const data=await db.getProduct('address',req.body.address)
     console.log(data)
     res.send(data);
 });
